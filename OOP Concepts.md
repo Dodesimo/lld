@@ -1,0 +1,37 @@
+- Encapsulation:
+	- Keep object data private, have methods that reveal details.
+	- enforces rules for updates
+	- methods sanitize inputs/outputs
+	- write getters for variables, for collections return an unmodifiable view or copy
+- Abstraction:
+	- expose only what's essential, hide implementation details behind interfaces
+	- Benefit of simplification:
+		- `PaymentMethod` interface instead of concrete classes like `CreditCardProcessor` or `PayPalProcessor`, swap implementations without touching code that uses them
+		- this allows for us to act on the base class/interface and simply apply a contract (method defined that all inherited classes have)
+	- helps when there's complexity in the system
+		- area of logic or state that's complex, simplify through abstractions
+- Polymorphism:
+	- dynamic dispatch of methods on subclass
+		- base class provided, but method is called on the actual subclass
+	- highly polymorphic code can be superhard to debug so explain tradeoff
+	- when behavior varies by type, use polymorphism
+		- avoid typechecks or switch statements
+- Inheritance:
+	- One class has a more specific version of another, getting the parent's data and behavior
+	- Tool for sharing implementation but has tight coupling. 
+		- But any change in parent can break every child since each child inherits all parent's fields and methods
+	- better approach: composition through interfaces
+		- interface defines contract of behaviors
+		- each class implements independently
+		- enables abstraction and polymorphism, but avoids sharing state
+	- but when does inheritance make sense?
+		- when we have stable, shared implementation that multiple subclasses need
+		- bank accounts: both savings account and checking account track balances, handle deposits, and maintain transaction history
+			- so they can both inherit a parent `BankAccount`
+			- shared implementation is stable and meaningful (no need to override inherited behavior in ways that break parent contract)
+		- when does inheritance break down?
+			- subclasses need to override methods to provide completely different implementations
+			- when behavior varies significantly, isolate behavior into own abstraction and compose it
+	- in most cases:
+		- have interfaces w/ composition
+	- 
