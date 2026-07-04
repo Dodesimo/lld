@@ -1,0 +1,37 @@
+- Requirements:
+	- Minimal prompt, need to make it more unambiguous.
+	- Ask:
+		- Primary capabilities: what operations?
+		- Rules and completion: what conditions define success, failure, or when system stops or transitions?
+		- Error handling: how should system respond when inputs or actions are invalid?
+		- Scope boundaries: what areas should be considered (core logic) versus kept out (UI, storage, networking, etc.)
+- Entities + Relationships
+	- translate requirements into few core entities w/ clean ownership boundaries
+	- entities: maintains a changing state or rules, own entity
+	- information attached to something else, field on another class
+	- define relationships:
+		- what entity is orchestrator?
+		- what entities own durable state?
+		- how do they depend on each other (has-a, uses, contains)
+		- where should rules logically live
+- Class Design:
+	- each entity becomes an actual class
+	- for each entity:
+		- ask about State: what does the class need to remember to enforce requirements?
+		- Behavior: what does class need to do in terms of operations or queries?
+		- ask what what part of requirements does this entity own?
+		- what information does it need to keep in memory to satisfy this?
+		- after state is figured out, identify what behaviors is required?
+			- small focused API
+		- keep rules w/ the entity that owns the relevant state
+			- encapsulation (objects manage own state and expose behavior)
+			- workflow and lifecycle is in the orchestrator, data-specific rules is in the entity
+		- don't worry about UML
+- Implementation:
+	- implement major methods in pseudocode (ask what's expected)
+	- Happy path: go through method in a linear way: input, steps, internal calls, returns or how changes state
+	- Edge case: enumerate failure modes (invalid inputs, illegal operations, out of range values)
+	- after that, verification: pick a simple case that isn't trivial and step through it through the code, mentioning state and what happens on each operation
+- Extension:
+	- Interviewer asks follow up questions, see if design can evolve cleanly.
+- 
