@@ -1,0 +1,39 @@
+- multiple things happen at the same time
+- concurrency in this context:
+	- threads, shared memory within one program
+- Threads in the same process share the same address space.
+	- Thread is an independent execution path.
+	- Program counter, registers, and stack.
+	- But shares heap, globals, and other resources.
+- Concurrency: whenever multiple threads make progress independently and execution overlaps
+	- Multi-core machines: threads run in parallel
+	- Single core: OS switches between threads and interleaves operations.
+	- Problem: operations can interleave in unpredictable ways.
+- Code that looks atomic is often multiple instructions
+	- So if two threads read/write shared memory without coordination, outcome depends on timing, scheduling or load.
+- atomics:
+	- thread-safe operations on single variables without a lock
+	- use CAS in one uninterruptable step
+	- Python doesn't have atomics so you need to use a lock. 
+- locks:
+	- mutual exclusion, threads hold lock, other threads acquiring lock get blocked till thread releases it.
+	- serializes a section
+- semaphores:
+	- counting locks
+	- has N permits, threads get permits before going and release them when done
+	- when permits hit 0, thread blocks
+- condition variables:
+	- threads wait for a condition to become true
+	- thread acquires lock, checks condition, if not satisfied, waits
+		- atomically releases lock, puts thread to sleep
+		- when another thread signals waiters wake up.
+- blocking queues:
+	- combine queue w/ condition variables to provide thread-safe producer-consumer handoff
+	- producer calls put to add items (if full, block)
+	- consumers call take to remove items
+- problem types w/ concurrency:
+	- correctness: shared state gets corrupted
+	- coordination: threads need to hand off work or wait for each other 
+		- producer asks task to queue, consumers process
+		- queue empty, consumers need to wait efficiently without burning CPU or if queue is full, producers slow down
+	- scarcity: resources are limited
