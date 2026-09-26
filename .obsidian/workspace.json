@@ -4,21 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "567f2eeb5693ece1",
+        "id": "561d1c82bfb3f91b",
         "type": "tabs",
         "children": [
           {
-            "id": "6b4e59967ff225fa",
+            "id": "2c0898d3365f4462",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Questions/Parking Lot.md",
+                "file": "Questions/File System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Parking Lot"
+              "title": "File System"
+            }
+          },
+          {
+            "id": "79896522b30a4173",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -80,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "right": {
@@ -186,22 +196,27 @@
       "bases:Create new base": false
     }
   },
-  "active": "6b4e59967ff225fa",
+  "active": "2c0898d3365f4462",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Questions/File System.md",
+    "kama.md",
+    "do you.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Questions/Parking Lot.md",
     "Code/parkingLot/ParkingLot.py",
     "Code/parkingLot/ParkingSpot.py",
     "Code/parkingLot/Parking",
     "Code/parkingLot/Ticket.py",
     "Code/parkingLot",
     "Questions/Elevator.md",
-    "Questions/Parking Lot.md",
     "Code/elevator/ElevatorController.py",
     "Code/elevator/Elevator.py",
     "Code/elevator/Request.py",
     "Code/elevator",
     "Questions/Amazon Locker.md",
     "Code/amazonLocker/locker.py",
-    "Code/amazonLocker/accessToken.py",
     "Questions/Connect Four.md",
     "Threading/Scarcity.md",
     "Threading/Coordination.md",
