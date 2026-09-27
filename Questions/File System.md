@@ -343,4 +343,4 @@
 				 - when we delete, remove it from index
 				 - when we create, add to index, delete it, remove, rename, update index
 		- have prefix search w/ trie or something, wildcard with secondary index constant search with inverted index
-	- 
+	-  
